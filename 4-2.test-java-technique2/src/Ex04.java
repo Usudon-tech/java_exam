@@ -1,10 +1,12 @@
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.Map;
 
 public class Ex04 {
     public static void main(String[] args) {
-        Map m = Collections.synchronizedMap(new HashMap("key", "value"));
-        
+        HashMap<String,String> map = new HashMap<>();
+
+        map.put("沖縄", "那覇");
+        map.put(null, null);
+
+        System.out.println(map.get("沖縄"));
     }
 }

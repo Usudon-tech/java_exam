@@ -1,26 +1,25 @@
 public class Item {
 
-    static private String name;
-    static private int price;
+    private String name;
+    private int price;
 
     public Item(String name, int price){
-        Item.name = name;
-        Item.price = price;
+        this.name = name;
+        this.price = price;
     }
-
-    public static String getName() {
+    public String getName() {
         return name;
     }
-    public static void setName(String name) {
-        Item.name = name;
+
+    public void setName(String name) {
+        this.name = name;
     }
-    public static int getPrice() {
+
+    public int getPrice() {
         return price;
     }
-    public static void setPrice(int price) {
-        Item.price = price;
-    }
-    
 
-    
+    public void setPrice(int price) {
+        this.price = price;
+    }
 }

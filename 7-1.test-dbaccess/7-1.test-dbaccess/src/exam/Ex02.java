@@ -26,7 +26,7 @@ public class Ex02 {
 			con = DriverManager.getConnection(url, user, password);
 
 			// (2)SQL文を作成
-			sql = "SELECT id, name, age, dep_id FROM test_members;"; 
+			sql = "SELECT id, name, age, dep_id FROM test_members WHERE dep_id = '2';"; 
 
 			// (3)SQL実行準備
 			pstmt = con.prepareStatement(sql);

@@ -27,16 +27,33 @@ public class Ex03 {
 			con = DriverManager.getConnection(url, user, password);
 
 			// (2)SQL文を作成
-			sql = "INSERT INTO test_members(id, name, age, dep_id) VALUES('3', '遠藤次郎', '55', '2');"; 
+			// sql = """
+            // SELECT a.id, a.name a.age b.name AS dep_name 
+            // FROM test_members AS a INNER JOIN test_department AS b ON a.dep_id = b.id;
+            // """;
+
+			sql = """
+					SELECT * FROM test_members INNER JOIN
+					test_deps ON test_deps.id = test_members.dep_id;
+					""";
 
 			// (3)SQL実行準備
 			pstmt = con.prepareStatement(sql);
 
 			// (4)SQL実行
-			int num = pstmt.executeUpdate();
+			rs = pstmt.executeQuery();
 
 			// (5)結果の操作
-			System.out.println(num + "件のデータを挿入しました");
+			while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                int age = rs.getInt("age");
+                int dep_id = rs.getInt("dep_id");
+                System.out.println("id:" + id);
+                System.out.println("name:" + name);
+                System.out.println("age:" + age);
+                System.out.println("dep_name:" + dep_id);               
+            }
 
 		} catch (SQLException ex) {
 			System.err.println("SQL = " + sql);

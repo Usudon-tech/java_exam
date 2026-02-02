@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.List;
 
 import common.DBManager;
@@ -43,10 +44,21 @@ public class MemberDao {
 	 */
 	public Member load(int id){
 		Connection con = DBManager.createConnection();
-		String sql = "ここにSQL文を書く";
+		String sql = "SELECT * FROM test_members WHERE id = '?';";
 		try {
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			// ここに主キー検索処理を書く
+			Member member = new Member();
+			ResultSet rs = pstmt.executeQuery();
+
+			if(rs.next()){
+				int id_info = rs.getInt(member.getId());
+				String name = rs.getString(member.getName());
+				int age = rs.getInt(member.getAge());
+				int dep_id = rs.getInt(member.getDep_id());
+
+				System.out.println("id:" + id_info + "name:" + name + "age:" + age + "dep_id" + dep_id);
+			}
 			
 			return null; //←コンパイルエラーを消すための処理なので必要なら書き換えてください
 		} catch (Exception e) {

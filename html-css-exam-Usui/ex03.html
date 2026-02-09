@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>会員登録フォーム</h1>
+
+    <form action = "register">
+        <ul>
+            <li><label>名前 : <input type = "text" name = "name" method = "post"></label></li><br>
+            <li><label>メールアドレス : <input type = "text" name = "email" method = "post"></label></li><br>
+            <li>性別 : 
+                <label><input type = "radio" name = "sex" value = "Man" method = "post">男</label>
+                <label><input type = "radio" name = "sex" value = "Female" method = "post">女</label></li><br>
+            <li>生年月日 : <input type = "date" name = "date" min = "1990-00-00" max = "2000-00-00" method = "post"></li><br>
+
+            <li>
+                <input type = "submit" name = "submit" value = "Submit">
+                <input type = "reset" name = "reset" value = "Reset">
+            </li>
+        </ul>
+    </form>
+
+</body>
+</html>

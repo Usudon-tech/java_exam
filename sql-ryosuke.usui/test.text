@@ -1,0 +1,20 @@
+問１
+INSERT INTO items(id, category_id, name, price) VALUES (13, 1, '鰯', 150); 
+INSERT INTO items(id, category_id, name, price) VALUES (14, 2, '羊', 650);
+
+問２
+UPDATE items SET price = price * 0.9;
+
+問３
+
+問４
+SELECT * FROM employees ORDER BY start_date LIMIT 1;
+
+問５
+SELECT regions.name, prefectures.name FROM prefectures JOIN regions ON regions.code = prefectures.region_code;
+
+問６
+SELECT sum(population) AS population FROM populations;
+
+問７
+SELECT regions.name, populations.gender_code, populations.population FROM regions JOIN populations ON populations.prefecture_code = regions.code; 

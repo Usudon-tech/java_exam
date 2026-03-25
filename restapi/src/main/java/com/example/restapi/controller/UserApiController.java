@@ -72,6 +72,17 @@ public class UserApiController {
             return ResponseEntity.ok(new UserResponse(userList));
         }
     }
+    @GetMapping("/search")
+    public ResponseEntity<List<UserResponse>> searchUsers(
+            @RequestParam(required=false) String name,
+            @RequestParam(required=false) String email) {
+
+    List<User> users = userService.searchUsers(name, email);
+
+    return ResponseEntity.ok(
+        users.stream().map(UserResponse::new).toList()
+    );
+}
     
     public void searchUsers() {
         return;
